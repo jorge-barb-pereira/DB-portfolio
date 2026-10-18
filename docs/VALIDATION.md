@@ -30,6 +30,23 @@ The workflow provisions `postgis/postgis:16-3.4` and checks:
 
 The workflow also runs the unit suite on Python 3.11/3.12 and builds/tests dbt on a separate runner. CI passwords are disposable test-only values, not copied source credentials. No original private profile or external warehouse account is needed.
 
-## Limits
+## GitHub verification after project isolation
+
+Implementation commit `58b9309` completed all four independent workflows successfully:
+
+| Project/check | Actual remote result |
+| --- | --- |
+| [Election analytics](https://github.com/jorge-barb-pereira/advanced-databases-portfolio/actions/runs/39132393357) | 10 self-contained checks pass on Python 3.11/3.12; all 19 election checks pass with the real PostgreSQL 16/PostGIS service, including the nine database integration checks |
+| [Healthcare database](https://github.com/jorge-barb-pereira/advanced-databases-portfolio/actions/runs/39132393383) | All eight SQLite checks and all seven demo queries pass on Python 3.11 and 3.12 |
+| [Customer analytics](https://github.com/jorge-barb-pereira/advanced-databases-portfolio/actions/runs/39132393462) | All three synthetic seeds, seven models and 30 dbt data tests pass; independent hand-calculated result checks pass |
+| [Source integrity](https://github.com/jorge-barb-pereira/advanced-databases-portfolio/actions/runs/39132393413) | All 38 selected archived-source hashes and repository packaging checks pass |
+
+The first integration run identified a PL/pgSQL CASE-expression grouping error in the new hierarchy/body triggers. Parenthesizing those expressions corrected it; the successful real-database run above verifies the final SQL rather than treating the original failure as a pass.
+
+Each project now has its own working directory, dependency setup and path-scoped workflow. Shared root tooling uses the standard library and does not import project runtimes. Local verification also passed from the reorganized project directories. The GitHub layout was prepared in a separate publishing checkout; the user's existing local project folders were not reorganized.
+
+The selected public files were additionally scanned for known supplied secret values, identifying private-origin markers and student identifiers. Original profiles, source data and generated dbt artifacts were excluded. The scan is a packaging check, not a guarantee about future contributions.
+
+## Scope limits
 
 Tests use invented, small datasets. They do not verify the original README's national data counts, official election outcomes, complete geographic coverage, real clinical workflows or production accounting balances. The historical destructive cleanup and stale-configuration patterns remain visible only as documented original source; those scripts are not run by tests or the maintained CLI.
