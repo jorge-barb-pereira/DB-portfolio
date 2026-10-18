@@ -1,0 +1,47 @@
+{
+  "adapted_on": "2026-10-18",
+  "models": [
+    {
+      "published": "dbt/customer_analytics/models/intermediate/int_customer_history.sql",
+      "original_sha256": "81ec17e6f0f775b9b659f3ed8d753d1b9cd660106680cae0fbe63af506865b2e",
+      "source": "Private source location withheld",
+      "change": "Generic model SQL; profiles, original data and identifying metadata excluded"
+    },
+    {
+      "published": "dbt/customer_analytics/models/intermediate/int_transactions_converted.sql",
+      "original_sha256": "61adc64937e5005b393fdfcfd69b4bc23c45718c0c176aaac2a89514cf0cfa4f",
+      "source": "Private source location withheld",
+      "change": "Generic model SQL; profiles, original data and identifying metadata excluded"
+    },
+    {
+      "published": "dbt/customer_analytics/models/marts/dim_customers.sql",
+      "original_sha256": "bfde9ad79252be223de639a96745dcf103655bfe775da0557014ee92a981fe60",
+      "source": "Private source location withheld",
+      "change": "Generic model SQL; profiles, original data and identifying metadata excluded"
+    },
+    {
+      "published": "dbt/customer_analytics/models/marts/fct_transactions.sql",
+      "original_sha256": "8116b0681bb1875120884d88442ec5b7db01d5cdfa01074c564c8a616dbb6f74",
+      "source": "Private source location withheld",
+      "change": "Generic model SQL; profiles, original data and identifying metadata excluded"
+    },
+    {
+      "published": "dbt/customer_analytics/models/staging/stg_currency_exchange.sql",
+      "original_sha256": "4e114b4cccddcb8f702d26c23a16bf2ed65726e405f97ecc78c28c5de4e0be14",
+      "source": "Private source location withheld",
+      "change": "Generic model SQL; profiles, original data and identifying metadata excluded"
+    },
+    {
+      "published": "dbt/customer_analytics/models/staging/stg_customers.sql",
+      "original_sha256": "2339a60097bbeb3ab375983a3cce7b59b4d87b6735e5e4f495a68535a9c3ae92",
+      "source": "Private source location withheld",
+      "change": "Generic model SQL; profiles, original data and identifying metadata excluded"
+    },
+    {
+      "published": "dbt/customer_analytics/models/staging/stg_transactions.sql",
+      "original_sha256": "7a1e5c167d1fe560d4b204cd1be2d8aa293a167577b6b10051d83abcacb2ffd2",
+      "source": "Private source location withheld",
+      "change": "Generic model SQL; profiles, original data and identifying metadata excluded"
+    }
+  ]
+}

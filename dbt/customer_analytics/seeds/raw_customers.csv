@@ -1,0 +1,4 @@
+customerID,country,state,VIP,KYC,wantsNewsletter,latestUpdate
+101,AA,SIGNUP,False,False,True,2025-01-01
+101,BB,VALIDATED,True,True,False,2025-02-01
+202,CC,VALIDATED,False,True,True,2025-01-01

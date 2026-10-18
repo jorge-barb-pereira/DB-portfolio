@@ -1,0 +1,23 @@
+name: customer_analytics
+version: '1.0.0'
+config-version: 2
+profile: customer_analytics
+model-paths: [models]
+seed-paths: [seeds]
+test-paths: [tests]
+models:
+  customer_analytics:
+    staging:
+      +materialized: view
+    intermediate:
+      +materialized: view
+    marts:
+      +materialized: table
+seeds:
+  customer_analytics:
+    raw_currency_exchange:
+      +column_types:
+        baseRateEuro: decimal(30,15)
+    raw_transactions:
+      +column_types:
+        amount: decimal(30,15)

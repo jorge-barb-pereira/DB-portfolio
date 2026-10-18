@@ -1,0 +1,684 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Autárquicas 2021 Dashboard</title>
+
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 24px;
+        background: #fafafa;
+        color: #111;
+    }
+
+    h1 {
+        font-size: 36px;
+        margin-bottom: 22px;
+    }
+
+    .controls-bar {
+        display: flex;
+        align-items: end;
+        gap: 14px;
+        margin-bottom: 24px;
+        flex-wrap: wrap;
+    }
+
+    .control-group {
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+    }
+
+    .control-group label {
+        font-weight: 700;
+        font-size: 14px;
+        color: #333;
+    }
+
+    .select-wrap {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        background: white;
+        border: 1px solid #d7dce2;
+        border-radius: 8px;
+        padding: 0 10px;
+        height: 42px;
+        min-width: 280px;
+        box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+    }
+
+    .select-wrap i {
+        color: #2f5d9f;
+    }
+
+    .select-wrap select {
+        border: none;
+        outline: none;
+        background: transparent;
+        width: 100%;
+        font-size: 14px;
+    }
+
+    .primary-btn {
+        height: 42px;
+        border: none;
+        border-radius: 8px;
+        background: #2458b8;
+        color: white;
+        padding: 0 18px;
+        font-weight: 700;
+        cursor: pointer;
+        box-shadow: 0 3px 8px rgba(36, 88, 184, 0.28);
+    }
+
+    .primary-btn:hover {
+        background: #1d4796;
+    }
+
+    .summary-cards {
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        gap: 14px;
+        margin: 18px 0 22px 0;
+    }
+
+    .card {
+        background: white;
+        border: 1px solid #dcdfe5;
+        border-radius: 10px;
+        padding: 18px;
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        box-shadow: 0 1px 5px rgba(0,0,0,0.05);
+    }
+
+    .card-icon {
+        width: 48px;
+        height: 48px;
+        border-radius: 999px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 22px;
+    }
+
+    .card h3 {
+        margin: 0 0 8px 0;
+        font-size: 13px;
+        color: #555;
+    }
+
+    .card p {
+        margin: 0;
+        font-size: 24px;
+        font-weight: 800;
+    }
+
+    .card.blue .card-icon {
+        background: #dce9ff;
+        color: #2458b8;
+    }
+
+    .card.green .card-icon {
+        background: #dff7ea;
+        color: #219653;
+    }
+
+    .card.amber .card-icon {
+        background: #fff0cc;
+        color: #e59f00;
+    }
+
+    .card.purple .card-icon {
+        background: #f0ddff;
+        color: #8e44ad;
+    }
+
+    .card.red .card-icon {
+        background: #ffe0e0;
+        color: #d7191c;
+    }
+
+    #map {
+        height: 520px;
+        margin-top: 20px;
+        border-radius: 10px;
+        overflow: hidden;
+        border: 1px solid #ddd;
+    }
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        background: white;
+        margin-top: 10px;
+    }
+
+    th, td {
+        padding: 10px;
+        border: 1px solid #ddd;
+        text-align: left;
+    }
+
+    th {
+        background: #f0f2f5;
+    }
+
+    .charts {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 24px;
+        margin-top: 24px;
+    }
+
+    .chart-card {
+        background: white;
+        border: 1px solid #dcdfe5;
+        border-radius: 10px;
+        padding: 18px;
+        box-shadow: 0 1px 5px rgba(0,0,0,0.05);
+        height: 380px;
+    }
+
+    .chart-card canvas {
+        width: 100% !important;
+        height: 320px !important;
+    }
+    </style>
+</head>
+
+<body>
+
+<h1>Autárquicas 2021 Election Analytics</h1>
+
+<div class="controls-bar">
+    <div class="control-group">
+        <label for="electionSelect">Election</label>
+        <div class="select-wrap">
+            <i class="fa-solid fa-calendar-days"></i>
+            <select id="electionSelect">
+                <option value="autarquicas2021">Autárquicas 2021</option>
+            </select>
+        </div>
+    </div>
+
+    <div class="control-group">
+        <label for="territorySelect">Municipality</label>
+        <div class="select-wrap">
+            <i class="fa-solid fa-location-dot"></i>
+            <select id="territorySelect">
+                <option value="">All Municipalities</option>
+            </select>
+        </div>
+    </div>
+
+    <div class="control-group">
+        <label for="orgaoSelect">Organ</label>
+        <div class="select-wrap">
+            <i class="fa-solid fa-landmark"></i>
+            <select id="orgaoSelect">
+                <option value="CM">Câmara Municipal</option>
+                <option value="AM">Assembleia Municipal</option>
+                <option value="AF">Assembleia de Freguesia</option>
+            </select>
+        </div>
+    </div>
+
+    <button onclick="loadResults()" class="primary-btn">
+        <i class="fa-solid fa-chart-bar"></i>
+        Load Results
+    </button>
+</div>
+
+<div class="summary-cards">
+    <div class="card blue">
+        <div class="card-icon">
+            <i class="fa-solid fa-users"></i>
+        </div>
+        <div>
+            <h3>Registered Voters</h3>
+            <p id="cardRegistered">-</p>
+        </div>
+    </div>
+
+    <div class="card green">
+        <div class="card-icon">
+            <i class="fa-solid fa-check"></i>
+        </div>
+        <div>
+            <h3>Voters</h3>
+            <p id="cardVoters">-</p>
+        </div>
+    </div>
+
+    <div class="card amber">
+        <div class="card-icon">
+            <i class="fa-solid fa-chart-line"></i>
+        </div>
+        <div>
+            <h3>Abstention</h3>
+            <p id="cardAbstention">-</p>
+        </div>
+    </div>
+
+    <div class="card purple">
+        <div class="card-icon">
+            <i class="fa-solid fa-square-poll-vertical"></i>
+        </div>
+        <div>
+            <h3>Total Valid Votes</h3>
+            <p id="cardVotes">-</p>
+        </div>
+    </div>
+
+    <div class="card red">
+        <div class="card-icon">
+            <i class="fa-solid fa-chart-pie"></i>
+        </div>
+        <div>
+            <h3 id="cardLastTitle">Winning Party</h3>
+            <p id="cardWinner">-</p>
+        </div>
+    </div>
+</div>
+
+<div id="map"></div>
+
+<h2>Results</h2>
+
+<table>
+    <thead>
+        <tr>
+            <th>Party</th>
+            <th>Votes</th>
+            <th>Mandates</th>
+            <th>Vote Share (%)</th>
+        </tr>
+    </thead>
+    <tbody id="resultsTable"></tbody>
+</table>
+
+<div class="charts">
+    <div class="chart-card">
+        <h2>Votes and Mandates by Party</h2>
+        <canvas id="votesChart"></canvas>
+    </div>
+
+    <div class="chart-card">
+        <h2>Turnout Summary</h2>
+        <canvas id="mandatesChart"></canvas>
+    </div>
+</div>
+
+<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<script>
+let map = L.map("map").setView([39.5, -8.0], 7);
+let selectedLayer = null;
+let geojsonLayer = null;
+let legendControl = null;
+let votesChart = null;
+let mandatesChart = null;
+
+L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+    maxZoom: 18
+}).addTo(map);
+
+async function loadTerritories() {
+    const orgao = document.getElementById("orgaoSelect").value;
+
+    const res = await fetch(`/api/territories?orgao=${orgao}`);
+    const territories = await res.json();
+
+    const select = document.getElementById("territorySelect");
+
+    document.querySelector("label[for='territorySelect']").textContent =
+        orgao === "AF" ? "Parish" : "Municipality";
+
+    select.innerHTML = "";
+
+    const defaultOption = document.createElement("option");
+    defaultOption.value = "";
+    defaultOption.textContent =
+        orgao === "AF" ? "All Parishes" : "All Municipalities";
+
+    select.appendChild(defaultOption);
+
+    territories.forEach(t => {
+        const option = document.createElement("option");
+        option.value = t.codigo;
+        option.textContent = `${t.nome} (${t.codigo})`;
+        select.appendChild(option);
+    });
+}
+
+async function loadMap() {
+    const orgao = document.getElementById("orgaoSelect").value;
+
+    if (geojsonLayer) {
+        map.removeLayer(geojsonLayer);
+    }
+
+    selectedLayer = null;
+
+    const res = await fetch(`/api/map?orgao=${orgao}`);
+    const geojson = await res.json();
+
+    function getColor(party) {
+        if (!party) return "#cccccc";
+
+        if (party.includes("PPD/PSD")) return "#fdae61";
+        if (party.includes("PCP") || party.includes("CDU")) return "#1a9641";
+        if (party.includes("B.E.")) return "#7b3294";
+        if (party.includes("CH")) return "#2c3e50";
+        if (party.includes("IL")) return "#f4d03f";
+        if (party.includes("CDS-PP")) return "#3498db";
+        if (party.includes("PAN")) return "#66bd63";
+        if (party.includes("PS")) return "#d7191c";
+        if (party === "L" || party.includes(".L")) return "#27ae60";
+
+        return "#cccccc";
+    }
+
+    geojsonLayer = L.geoJSON(geojson, {
+        style: function(feature) {
+            return {
+                color: "#333",
+                weight: orgao === "AF" ? 0.5 : 1,
+                fillOpacity: 0.7,
+                fillColor: getColor(feature.properties.winner)
+            };
+        },
+
+        onEachFeature: function(feature, layer) {
+            layer.bindPopup(`
+                <b>${feature.properties.nome}</b><br>
+                Winning Party: ${feature.properties.winner || "N/A"}
+            `);
+
+            layer.on("mouseover", function(e) {
+                e.target.setStyle({
+                    weight: 3,
+                    color: "#000",
+                    fillOpacity: 0.9
+                });
+            });
+
+            layer.on("mouseout", function(e) {
+                if (selectedLayer !== layer) {
+                    e.target.setStyle({
+                        weight: orgao === "AF" ? 0.5 : 1,
+                        color: "#333",
+                        fillOpacity: 0.7
+                    });
+                }
+            });
+
+            layer.on("click", function() {
+                document.getElementById("territorySelect").value =
+                    feature.properties.codigo;
+
+                loadResults();
+
+                map.fitBounds(layer.getBounds());
+
+                if (selectedLayer) {
+                    selectedLayer.setStyle({
+                        weight: orgao === "AF" ? 0.5 : 1,
+                        color: "#333"
+                    });
+                }
+
+                selectedLayer = layer;
+
+                layer.setStyle({
+                    weight: 3,
+                    color: "black"
+                });
+            });
+        }
+    }).addTo(map);
+
+    if (legendControl) {
+        map.removeControl(legendControl);
+    }
+
+    legendControl = L.control({ position: "bottomright" });
+
+    legendControl.onAdd = function () {
+        const div = L.DomUtil.create("div", "info legend");
+        div.innerHTML = `
+            <div style="background:white;padding:10px;border-radius:5px;">
+                <h4>Winning Party</h4>
+                <div><span style="background:#d7191c;width:15px;height:15px;display:inline-block;"></span> PS</div>
+                <div><span style="background:#fdae61;width:15px;height:15px;display:inline-block;"></span> PSD</div>
+                <div><span style="background:#1a9641;width:15px;height:15px;display:inline-block;"></span> CDU</div>
+                <div><span style="background:#7b3294;width:15px;height:15px;display:inline-block;"></span> BE</div>
+                <div><span style="background:#2c3e50;width:15px;height:15px;display:inline-block;"></span> CH</div>
+                <div><span style="background:#f4d03f;width:15px;height:15px;display:inline-block;"></span> IL</div>
+                <div><span style="background:#3498db;width:15px;height:15px;display:inline-block;"></span> CDS-PP</div>
+                <div><span style="background:#66bd63;width:15px;height:15px;display:inline-block;"></span> PAN</div>
+                <div><span style="background:#cccccc;width:15px;height:15px;display:inline-block;"></span> Other</div>
+            </div>
+        `;
+        return div;
+    };
+
+    legendControl.addTo(map);
+}
+
+async function loadResults() {
+    const codigo = document.getElementById("territorySelect").value;
+    const orgao = document.getElementById("orgaoSelect").value;
+
+    const res = await fetch(`/api/results?codigo=${codigo}&orgao=${orgao}`);
+    const data = await res.json();
+
+    document.getElementById("cardRegistered").textContent =
+        Number(data.stats.inscritos).toLocaleString();
+
+    document.getElementById("cardVoters").textContent =
+        Number(data.stats.votantes).toLocaleString();
+
+    document.getElementById("cardAbstention").textContent =
+        `${data.stats.abstencao}%`;
+
+    document.getElementById("cardVotes").textContent =
+        Number(data.stats.validos).toLocaleString();
+
+    if (data.overall) {
+        document.getElementById("cardLastTitle").textContent =
+            orgao === "AF" ? "Total Parishes" : "Total Municipalities";
+
+        document.getElementById("cardWinner").textContent =
+            Number(data.summary.total_municipalities).toLocaleString();
+    } else {
+        document.getElementById("cardLastTitle").textContent = "Winning Party";
+
+        document.getElementById("cardWinner").textContent =
+            `${data.summary.winner} (${Number(data.summary.winner_votes).toLocaleString()} votes)`;
+    }
+
+    const tbody = document.getElementById("resultsTable");
+    tbody.innerHTML = "";
+
+    data.results.forEach(r => {
+        tbody.innerHTML += `
+            <tr>
+                <td>${r.partido}</td>
+                <td>${Number(r.votos).toLocaleString()}</td>
+                <td>${Number(r.mandatos).toLocaleString()}</td>
+                <td>${r.vote_share}</td>
+            </tr>
+        `;
+    });
+
+    drawCharts(data.results, data.stats);
+}
+
+function drawCharts(results, stats) {
+    const topResults = results.slice(0, 10);
+
+    const labels = topResults.map(r => r.partido);
+    const votes = topResults.map(r => r.votos);
+    const mandates = topResults.map(r => r.mandatos);
+
+    const abstentions = Math.max(
+        Number(stats.inscritos || 0) - Number(stats.votantes || 0),
+        0
+    );
+
+    const turnoutLabels = [
+        "Registered voters",
+        "Voters",
+        "Valid votes",
+        "Abstentions"
+        
+    ];
+
+    const turnoutValues = [
+        Number(stats.inscritos || 0),
+        Number(stats.votantes || 0),
+        Number(stats.validos || 0),
+        abstentions
+    
+    ];
+
+    if (votesChart) votesChart.destroy();
+    if (mandatesChart) mandatesChart.destroy();
+
+    votesChart = new Chart(document.getElementById("votesChart"), {
+        type: "bar",
+        data: {
+            labels: labels,
+            datasets: [
+                {
+                    label: "Votes",
+                    data: votes,
+                    yAxisID: "yVotes"
+                },
+                {
+                    label: "Mandates",
+                    data: mandates,
+                    yAxisID: "yMandates"
+                }
+            ]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            interaction: {
+                mode: "index",
+                intersect: false
+            },
+            plugins: {
+                legend: {
+                    display: true
+                },
+                tooltip: {
+                    callbacks: {
+                        label: function(context) {
+                            return `${context.dataset.label}: ${Number(context.raw).toLocaleString()}`;
+                        }
+                    }
+                }
+            },
+            scales: {
+                x: {
+                    ticks: {
+                        maxRotation: 45,
+                        minRotation: 30
+                    }
+                },
+                yVotes: {
+                    type: "linear",
+                    position: "left",
+                    beginAtZero: true,
+                    title: {
+                        display: true,
+                        text: "Votes"
+                    }
+                },
+                yMandates: {
+                    type: "linear",
+                    position: "right",
+                    beginAtZero: true,
+                    grid: {
+                        drawOnChartArea: false
+                    },
+                    ticks: {
+                        precision: 0
+                    },
+                    title: {
+                        display: true,
+                        text: "Mandates"
+                    }
+                }
+            }
+        }
+    });
+
+    mandatesChart = new Chart(document.getElementById("mandatesChart"), {
+        type: "bar",
+        data: {
+            labels: turnoutLabels,
+            datasets: [{
+                label: "Count",
+                data: turnoutValues
+            }]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+                legend: {
+                    display: false
+                },
+                tooltip: {
+                    callbacks: {
+                        label: function(context) {
+                            return `${context.label}: ${Number(context.raw).toLocaleString()}`;
+                        }
+                    }
+                }
+            },
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            }
+        }
+    });
+} 
+
+document.getElementById("orgaoSelect").addEventListener("change", async function () {
+    await loadTerritories();
+    await loadMap();
+    await loadResults();
+});
+
+document.getElementById("territorySelect").addEventListener("change", async function () {
+    await loadResults();
+});
+
+document.addEventListener("DOMContentLoaded", async function () {
+    await loadTerritories();
+    await loadMap();
+    await loadResults();
+});
+document.getElementById("electionSelect").addEventListener("change", async function () {
+    await loadTerritories();
+    await loadMap();
+    await loadResults();
+});
+</script>
+
+</body>
+</html>

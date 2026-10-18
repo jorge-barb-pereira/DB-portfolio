@@ -1,0 +1,8 @@
+customer_analytics:
+  target: local
+  outputs:
+    local:
+      type: duckdb
+      path: "{{ env_var('DBT_DEMO_PATH') }}"
+      schema: analytics
+      threads: 1
