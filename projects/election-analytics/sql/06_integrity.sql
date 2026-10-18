@@ -18,7 +18,7 @@ BEGIN
         IF NEW.parent_codigo IS NOT NULL THEN RAISE EXCEPTION 'District cannot have a parent'; END IF;
     ELSE
         SELECT t.tipo INTO parent_type FROM eleicoes.territorios t WHERE t.codigo=NEW.parent_codigo;
-        IF parent_type IS DISTINCT FROM CASE WHEN NEW.tipo='Município' THEN 'Distrito' ELSE 'Município' END THEN
+        IF parent_type IS DISTINCT FROM (CASE WHEN NEW.tipo='Município' THEN 'Distrito' ELSE 'Município' END) THEN
             RAISE EXCEPTION 'Invalid territory hierarchy';
         END IF;
     END IF;
@@ -37,7 +37,7 @@ CREATE FUNCTION eleicoes.validate_body_type() RETURNS trigger LANGUAGE plpgsql A
 DECLARE territory_type text;
 BEGIN
     SELECT t.tipo INTO territory_type FROM eleicoes.territorios t WHERE t.codigo=NEW.territorio_codigo;
-    IF territory_type IS DISTINCT FROM CASE WHEN NEW.orgao='AF' THEN 'Freguesia' ELSE 'Município' END THEN
+    IF territory_type IS DISTINCT FROM (CASE WHEN NEW.orgao='AF' THEN 'Freguesia' ELSE 'Município' END) THEN
         RAISE EXCEPTION 'Elected body does not match territory type';
     END IF;
     RETURN NEW;

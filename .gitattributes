@@ -1,3 +1,5 @@
 * text=auto
-historical/** -text
+archive/election-analytics/** -text
+archive/healthcare-db/** -text
+archive/sql-labs/** -text
 *.png binary

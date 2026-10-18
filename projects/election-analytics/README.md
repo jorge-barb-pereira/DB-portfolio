@@ -2,6 +2,30 @@
 
 The maintained platform adapts the supplied Portuguese local-election database architecture. Operational identifiers retain their Portuguese names for continuity with the original SQL; interfaces and documentation are English.
 
+
+## Quick start
+
+Run these commands from `projects/election-analytics/`:
+
+```bash
+python -m venv .venv
+# Windows PowerShell: .venv\Scripts\Activate.ps1
+# Linux/macOS: source .venv/bin/activate
+python -m pip install -e .
+# Copy .env.example to .env and replace DB_PASS with your own local password.
+docker compose up -d --wait
+python -m election_portfolio.etl init
+python -m election_portfolio.etl validate
+python -m election_portfolio.etl load
+python -m election_portfolio.web
+```
+
+Open [the local dashboard](http://127.0.0.1:5000). The demo uses invented territories, square geometries, lists and votes; the UI labels them explicitly. The map uses Leaflet and online OpenStreetMap tiles. Results and built-in charts remain available when the map library cannot load.
+
+Initialization refuses existing `eleicoes` or `dw` schemas. Repeating the synthetic load is idempotent. The database port binds to loopback only; the Flask development server binds to localhost with debug disabled.
+
+For self-contained tests, run `python -m unittest discover -s tests -v`. The nine PostgreSQL tests are explicitly skipped unless `RUN_DB_TESTS=1` targets a fresh dedicated PostGIS database. The [election workflow](../../.github/workflows/elections.yml) runs those checks with a real service.
+
 ## Components
 
 - `sql/01_operational_schema.sql`: territories, parties, party results, turnout statistics, keys and spatial indexes.

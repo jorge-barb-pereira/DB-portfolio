@@ -4,7 +4,7 @@ import sqlite3
 import unittest
 
 ROOT = Path(__file__).resolve().parents[1]
-spec = importlib.util.spec_from_file_location('healthcare_demo',ROOT/'healthcare/demo.py')
+spec = importlib.util.spec_from_file_location('healthcare_demo',ROOT/'demo.py')
 demo = importlib.util.module_from_spec(spec)
 spec.loader.exec_module(demo)
 
@@ -17,7 +17,7 @@ class HealthcareTests(unittest.TestCase):
         self.db.close()
 
     def test_all_seven_queries_execute(self):
-        paths = sorted((ROOT/'healthcare/queries').glob('*.sql'))
+        paths = sorted((ROOT/'queries').glob('*.sql'))
         self.assertEqual(len(paths),7)
         for path in paths:
             with self.subTest(query=path.name):
@@ -51,6 +51,6 @@ class HealthcareTests(unittest.TestCase):
     def test_annual_query_includes_stay_spanning_entire_year(self):
         self.db.execute("INSERT INTO Patient(patient_id,name,date_of_birth,gender,phone_number) VALUES(8,'Demo Patient 8','1980-01-01','Other',100000008)")
         self.db.execute("INSERT INTO Hospitalization VALUES(10,8,1,4,'2024-12-01','2026-01-01')")
-        rows=self.db.execute((ROOT/'healthcare/queries/02_query.sql').read_text()).fetchall()
+        rows=self.db.execute((ROOT/'queries/02_query.sql').read_text(encoding='utf-8')).fetchall()
         self.assertEqual(dict(rows)['Cardiology'],3)
 

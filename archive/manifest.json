@@ -1,0 +1,309 @@
+{
+  "imported_on": "2026-10-18",
+  "files": [
+    {
+      "source": "DB_1/Trabalho/criar.sql",
+      "published": "archive/healthcare-db/Trabalho/criar.sql",
+      "original_sha256": "6bd028da59bd995a777ab93f17da6ee8eaa06e9970f206ce9ee2a0afec1ebed1",
+      "published_sha256": "6bd028da59bd995a777ab93f17da6ee8eaa06e9970f206ce9ee2a0afec1ebed1",
+      "modified_utc": "2026-10-18T11:42:17.354603+00:00",
+      "change": "Verbatim byte copy"
+    },
+    {
+      "source": "DB_1/Trabalho/int1.sql",
+      "published": "archive/healthcare-db/Trabalho/int1.sql",
+      "original_sha256": "02cae287c870d19023181631a2e5b992a98169904172eda2d8df84d9475b4bad",
+      "published_sha256": "02cae287c870d19023181631a2e5b992a98169904172eda2d8df84d9475b4bad",
+      "modified_utc": "2026-10-18T11:42:17.386048+00:00",
+      "change": "Verbatim byte copy"
+    },
+    {
+      "source": "DB_1/Trabalho/int2.sql",
+      "published": "archive/healthcare-db/Trabalho/int2.sql",
+      "original_sha256": "9cd4cef227d78784501b909fcb407ea8639f23ce70fef5e89e745ec30c2499e7",
+      "published_sha256": "9cd4cef227d78784501b909fcb407ea8639f23ce70fef5e89e745ec30c2499e7",
+      "modified_utc": "2026-10-18T11:42:17.354603+00:00",
+      "change": "Verbatim byte copy"
+    },
+    {
+      "source": "DB_1/Trabalho/int3.sql",
+      "published": "archive/healthcare-db/Trabalho/int3.sql",
+      "original_sha256": "73b7579d58316ac174b1d6fff671e815f21e7703ac3a5fe29218a5820de751ef",
+      "published_sha256": "73b7579d58316ac174b1d6fff671e815f21e7703ac3a5fe29218a5820de751ef",
+      "modified_utc": "2026-10-18T11:42:17.299184+00:00",
+      "change": "Verbatim byte copy"
+    },
+    {
+      "source": "DB_1/Trabalho/int4.sql",
+      "published": "archive/healthcare-db/Trabalho/int4.sql",
+      "original_sha256": "b43c08118f4f8cf1567b6105c1c57e824fac29ed59877bcbbc37d474197cffa5",
+      "published_sha256": "b43c08118f4f8cf1567b6105c1c57e824fac29ed59877bcbbc37d474197cffa5",
+      "modified_utc": "2026-10-18T11:42:17.413329+00:00",
+      "change": "Verbatim byte copy"
+    },
+    {
+      "source": "DB_1/Trabalho/int5.sql",
+      "published": "archive/healthcare-db/Trabalho/int5.sql",
+      "original_sha256": "4ddc766a0c34a0e307fdc81dbfddea846ff0226cc9739b56ed8fc449ed80f329",
+      "published_sha256": "4ddc766a0c34a0e307fdc81dbfddea846ff0226cc9739b56ed8fc449ed80f329",
+      "modified_utc": "2026-10-18T11:42:17.422138+00:00",
+      "change": "Verbatim byte copy"
+    },
+    {
+      "source": "DB_1/Trabalho/int6.sql",
+      "published": "archive/healthcare-db/Trabalho/int6.sql",
+      "original_sha256": "ab100e1f4105a447442a5441979542e658e0e56b698cca5cb7eeec367f4356f1",
+      "published_sha256": "ab100e1f4105a447442a5441979542e658e0e56b698cca5cb7eeec367f4356f1",
+      "modified_utc": "2026-10-18T11:42:17.386048+00:00",
+      "change": "Verbatim byte copy"
+    },
+    {
+      "source": "DB_1/Trabalho/int7.sql",
+      "published": "archive/healthcare-db/Trabalho/int7.sql",
+      "original_sha256": "3ba21d89ce5294cc746e9f9c2d2c44e9c8c4106963a907fafee719ffceaf90fb",
+      "published_sha256": "3ba21d89ce5294cc746e9f9c2d2c44e9c8c4106963a907fafee719ffceaf90fb",
+      "modified_utc": "2026-10-18T11:42:17.370270+00:00",
+      "change": "Verbatim byte copy"
+    },
+    {
+      "source": "DB_1/Trabalho/old/criar.sql",
+      "published": "archive/healthcare-db/Trabalho/old/criar.sql",
+      "original_sha256": "d013c45511fd85b7cde690a8c0713c75b6c95a8ae480f2c76cc7530feee98827",
+      "published_sha256": "d013c45511fd85b7cde690a8c0713c75b6c95a8ae480f2c76cc7530feee98827",
+      "modified_utc": "2026-10-18T11:42:17.465362+00:00",
+      "change": "Verbatim byte copy"
+    },
+    {
+      "source": "DB_1/Trabalho/old - 2.0/criar.sql",
+      "published": "archive/healthcare-db/Trabalho/old - 2.0/criar.sql",
+      "original_sha256": "4e3153cb07309a87b2a9e2ccbed224bb543117e6ed59b090723b2193dd21099e",
+      "published_sha256": "4e3153cb07309a87b2a9e2ccbed224bb543117e6ed59b090723b2193dd21099e",
+      "modified_utc": "2026-10-18T11:42:17.528513+00:00",
+      "change": "Verbatim byte copy"
+    },
+    {
+      "source": "DB_1/Trabalho/old 3.0/criar.sql",
+      "published": "archive/healthcare-db/Trabalho/old 3.0/criar.sql",
+      "original_sha256": "466c123942b80b926b1aa8c98eda9c455838561677f3e65825e09fe062d6e1a5",
+      "published_sha256": "466c123942b80b926b1aa8c98eda9c455838561677f3e65825e09fe062d6e1a5",
+      "modified_utc": "2026-10-18T11:42:17.896788+00:00",
+      "change": "Verbatim byte copy"
+    },
+    {
+      "source": "DB_1/Trabalho/old 4.0/criar.sql",
+      "published": "archive/healthcare-db/Trabalho/old 4.0/criar.sql",
+      "original_sha256": "8999173e0428ea9212239d1d33e69e11d5620dac3a05e30b2afd024a286bbcca",
+      "published_sha256": "8999173e0428ea9212239d1d33e69e11d5620dac3a05e30b2afd024a286bbcca",
+      "modified_utc": "2026-10-18T11:42:17.544335+00:00",
+      "change": "Verbatim byte copy"
+    },
+    {
+      "source": "DB_1/Trabalho/old 4.0/queries.sql",
+      "published": "archive/healthcare-db/Trabalho/old 4.0/queries.sql",
+      "original_sha256": "240cc039acb11f4e7c3df2b726b92a5707b0ad5526e2e3cf6619b20c9d5fc69a",
+      "published_sha256": "240cc039acb11f4e7c3df2b726b92a5707b0ad5526e2e3cf6619b20c9d5fc69a",
+      "modified_utc": "2026-10-18T11:42:17.562043+00:00",
+      "change": "Verbatim byte copy"
+    },
+    {
+      "source": "DB_1/Trabalho/old 5.0/criar.sql",
+      "published": "archive/healthcare-db/Trabalho/old 5.0/criar.sql",
+      "original_sha256": "515b5ba9c6cc7a81903ebf299bd4795e4b0853c0de0e4bc81173757b415187e5",
+      "published_sha256": "515b5ba9c6cc7a81903ebf299bd4795e4b0853c0de0e4bc81173757b415187e5",
+      "modified_utc": "2026-10-18T11:42:17.723567+00:00",
+      "change": "Verbatim byte copy"
+    },
+    {
+      "source": "DB_1/Trabalho/old 6.0/int5.sql",
+      "published": "archive/healthcare-db/Trabalho/old 6.0/int5.sql",
+      "original_sha256": "123c5b7f328d043a25f3a2e91ee4c31fb30d2d69bcac009ebb476078f905992a",
+      "published_sha256": "123c5b7f328d043a25f3a2e91ee4c31fb30d2d69bcac009ebb476078f905992a",
+      "modified_utc": "2026-10-18T11:42:17.481045+00:00",
+      "change": "Verbatim byte copy"
+    },
+    {
+      "source": "DB_1/Trabalho/old 6.0/int6.sql",
+      "published": "archive/healthcare-db/Trabalho/old 6.0/int6.sql",
+      "original_sha256": "60383564715220b87611df621fe8c5995563a2fcef2bbdd635be2bd31abffc0f",
+      "published_sha256": "60383564715220b87611df621fe8c5995563a2fcef2bbdd635be2bd31abffc0f",
+      "modified_utc": "2026-10-18T11:42:17.504528+00:00",
+      "change": "Verbatim byte copy"
+    },
+    {
+      "source": "DB_1/Trabalho/old 6.0/int7.sql",
+      "published": "archive/healthcare-db/Trabalho/old 6.0/int7.sql",
+      "original_sha256": "0d7fc2ec07f4a6d8eaf5d1dd4b5bc004cf220dcc72ee81793a972fd07c165c67",
+      "published_sha256": "0d7fc2ec07f4a6d8eaf5d1dd4b5bc004cf220dcc72ee81793a972fd07c165c67",
+      "modified_utc": "2026-10-18T11:42:17.512529+00:00",
+      "change": "Verbatim byte copy"
+    },
+    {
+      "source": "DB_1/Trabalho/Sem CHECK - works!/criar.sql",
+      "published": "archive/healthcare-db/Trabalho/Sem CHECK - works!/criar.sql",
+      "original_sha256": "f3948cef444e88845f408e8d34f36ac383398352906b392f5f7cbc819c4eed89",
+      "published_sha256": "f3948cef444e88845f408e8d34f36ac383398352906b392f5f7cbc819c4eed89",
+      "modified_utc": "2026-10-18T11:42:17.869365+00:00",
+      "change": "Verbatim byte copy"
+    },
+    {
+      "source": "db_ii/Laboratorial Classes/Class01/EX01_01.sql",
+      "published": "archive/sql-labs/Class01/EX01_01.sql",
+      "original_sha256": "48df87bdf80be50b2f3da36ab8c23ea07111cb1a5fd557d63e4daad7032a7c82",
+      "published_sha256": "48df87bdf80be50b2f3da36ab8c23ea07111cb1a5fd557d63e4daad7032a7c82",
+      "modified_utc": "2026-09-23T13:39:32.900517+00:00",
+      "change": "Verbatim byte copy"
+    },
+    {
+      "source": "db_ii/Laboratorial Classes/Class01/EX01_02.sql",
+      "published": "archive/sql-labs/Class01/EX01_02.sql",
+      "original_sha256": "a75ee8005b81a6134ad211df73339dbeaeb665259ee46c2b0929e9a6f84576f2",
+      "published_sha256": "a75ee8005b81a6134ad211df73339dbeaeb665259ee46c2b0929e9a6f84576f2",
+      "modified_utc": "2026-09-23T13:39:32.908527+00:00",
+      "change": "Verbatim byte copy"
+    },
+    {
+      "source": "db_ii/Laboratorial Classes/Class01/EX01_02_cte.sql",
+      "published": "archive/sql-labs/Class01/EX01_02_cte.sql",
+      "original_sha256": "8bdc1d5f92874a116c9132eba39a2519ef678608dc32389b723a374a9299da3d",
+      "published_sha256": "8bdc1d5f92874a116c9132eba39a2519ef678608dc32389b723a374a9299da3d",
+      "modified_utc": "2026-09-23T13:39:32.916199+00:00",
+      "change": "Verbatim byte copy"
+    },
+    {
+      "source": "db_ii/Laboratorial Classes/Class01/EX01_03.sql",
+      "published": "archive/sql-labs/Class01/EX01_03.sql",
+      "original_sha256": "6d389d5f07dd81192cebdf98947049c6fcb4742657b98ad7e4187ca50d1ec13e",
+      "published_sha256": "6d389d5f07dd81192cebdf98947049c6fcb4742657b98ad7e4187ca50d1ec13e",
+      "modified_utc": "2026-09-23T13:39:32.925134+00:00",
+      "change": "Verbatim byte copy"
+    },
+    {
+      "source": "db_ii/Laboratorial Classes/Class01/EX01_03_cte.sql",
+      "published": "archive/sql-labs/Class01/EX01_03_cte.sql",
+      "original_sha256": "64f546163b1fb37d1cac5d3a2189104ab15fb384e771af4043db9ba55b150c1c",
+      "published_sha256": "64f546163b1fb37d1cac5d3a2189104ab15fb384e771af4043db9ba55b150c1c",
+      "modified_utc": "2026-09-23T13:39:32.932280+00:00",
+      "change": "Verbatim byte copy"
+    },
+    {
+      "source": "db_ii/Laboratorial Classes/Class01/EX01_04.sql",
+      "published": "archive/sql-labs/Class01/EX01_04.sql",
+      "original_sha256": "71cca3a41644889149a42b25a36464569c301b91cb3805e49b2f997555875093",
+      "published_sha256": "71cca3a41644889149a42b25a36464569c301b91cb3805e49b2f997555875093",
+      "modified_utc": "2026-09-23T13:39:32.940857+00:00",
+      "change": "Verbatim byte copy"
+    },
+    {
+      "source": "db_ii/Laboratorial Classes/Class01/EX01_04_cte.sql",
+      "published": "archive/sql-labs/Class01/EX01_04_cte.sql",
+      "original_sha256": "bc001f000e37ddb0df1c519ce36d31f306c89ed4b8af76001202ff5cdf939c50",
+      "published_sha256": "bc001f000e37ddb0df1c519ce36d31f306c89ed4b8af76001202ff5cdf939c50",
+      "modified_utc": "2026-09-23T13:39:32.948404+00:00",
+      "change": "Verbatim byte copy"
+    },
+    {
+      "source": "db_ii/Laboratorial Classes/Class01/EX01_05.sql",
+      "published": "archive/sql-labs/Class01/EX01_05.sql",
+      "original_sha256": "89572b47cffc62ec311aaa611bead4767fdadb14de3dcf4e104f5b8ce2771644",
+      "published_sha256": "89572b47cffc62ec311aaa611bead4767fdadb14de3dcf4e104f5b8ce2771644",
+      "modified_utc": "2026-09-23T13:39:32.956717+00:00",
+      "change": "Verbatim byte copy"
+    },
+    {
+      "source": "Project/app/app.py",
+      "published": "archive/election-analytics/app/app.py",
+      "original_sha256": "2b2c0312f93c6094164532a4958ea4a82576a39c42595a358bae096107522b5d",
+      "published_sha256": "a1d29928003b222af640fcbb384245ca5818a684cf5394fa670fd97a3e577bed",
+      "modified_utc": "2026-09-23T13:41:46.843632+00:00",
+      "change": "Remove fallback or inline database password"
+    },
+    {
+      "source": "Project/app/templates/index.html",
+      "published": "archive/election-analytics/app/templates/index.html",
+      "original_sha256": "af63f8ae7e604030f93b34fe1b0ab9a7ef489443875b141bca05160a25d8a2b4",
+      "published_sha256": "af63f8ae7e604030f93b34fe1b0ab9a7ef489443875b141bca05160a25d8a2b4",
+      "modified_utc": "2026-09-23T13:41:46.863765+00:00",
+      "change": "Verbatim byte copy"
+    },
+    {
+      "source": "Project/etl/check_db.py",
+      "published": "archive/election-analytics/etl/check_db.py",
+      "original_sha256": "8996c3a442ffe154992835fd00d6ab1382acf37b3cb7f63d49ba8174ca2e22f2",
+      "published_sha256": "f1b2b919b5afae727f18f6962455dc42802b2e57ee853d86f4c96fe6cf3dc8ad",
+      "modified_utc": "2026-09-23T13:41:46.906999+00:00",
+      "change": "Remove fallback or inline database password"
+    },
+    {
+      "source": "Project/etl/cross_validate.py",
+      "published": "archive/election-analytics/etl/cross_validate.py",
+      "original_sha256": "53c9a5ba64a89257ddcaf912e6ede49d4dc0f411b93481166ed5761ef9b3df51",
+      "published_sha256": "3229e1550c86da2c870d0ba6c8e295f94ca4d2873005f47f0e99dd2f9b252026",
+      "modified_utc": "2026-09-23T13:41:46.906999+00:00",
+      "change": "Remove fallback or inline database password"
+    },
+    {
+      "source": "Project/etl/download_caop.py",
+      "published": "archive/election-analytics/etl/download_caop.py",
+      "original_sha256": "a00866abb18215cd2576131affec1c4cad48b83ac0958a66851b87b046b9c47c",
+      "published_sha256": "a00866abb18215cd2576131affec1c4cad48b83ac0958a66851b87b046b9c47c",
+      "modified_utc": "2026-09-23T13:41:46.922998+00:00",
+      "change": "Verbatim byte copy"
+    },
+    {
+      "source": "Project/etl/run_pipeline.py",
+      "published": "archive/election-analytics/etl/run_pipeline.py",
+      "original_sha256": "338767a607e674878e4796d7b0bb8da5d901b026a7f0794c5d2e8a8966cd044f",
+      "published_sha256": "41f1cc466c412ebc057de0134e4394d14864f62ec937603d2e61179d97015976",
+      "modified_utc": "2026-09-23T13:41:46.931011+00:00",
+      "change": "Remove fallback or inline database password"
+    },
+    {
+      "source": "Project/etl/test_triggers.py",
+      "published": "archive/election-analytics/etl/test_triggers.py",
+      "original_sha256": "294f3032f7b67da1893b62b6f42290dcc170cd395e9e48bcbb3fff4cdab85ede",
+      "published_sha256": "73a80f5a1754c9db3e4ca1a8c9a6fadaa356b0e933600f3a751eebcf3fa9b9ff",
+      "modified_utc": "2026-09-23T13:41:46.938742+00:00",
+      "change": "Remove fallback or inline database password"
+    },
+    {
+      "source": "Project/sql/01_operational_schema.sql",
+      "published": "archive/election-analytics/sql/01_operational_schema.sql",
+      "original_sha256": "a42ad810c7c11566bcaa85741b5e489a03f201149475943d7c01505a2fe29d74",
+      "published_sha256": "a42ad810c7c11566bcaa85741b5e489a03f201149475943d7c01505a2fe29d74",
+      "modified_utc": "2026-09-23T13:41:50.783087+00:00",
+      "change": "Verbatim byte copy"
+    },
+    {
+      "source": "Project/sql/02_functions_triggers.sql",
+      "published": "archive/election-analytics/sql/02_functions_triggers.sql",
+      "original_sha256": "c52c51e749a5964d6cabede74dfcfb227e13bb2a7042eed1230d1a78475cfaa5",
+      "published_sha256": "c52c51e749a5964d6cabede74dfcfb227e13bb2a7042eed1230d1a78475cfaa5",
+      "modified_utc": "2026-09-23T13:41:50.792602+00:00",
+      "change": "Verbatim byte copy"
+    },
+    {
+      "source": "Project/sql/03_data_warehouse_schema.sql",
+      "published": "archive/election-analytics/sql/03_data_warehouse_schema.sql",
+      "original_sha256": "ceeb5be4234a7cabb1192d2765e87ac8c6ee1a90c3554da92b7feacf04e01b17",
+      "published_sha256": "ceeb5be4234a7cabb1192d2765e87ac8c6ee1a90c3554da92b7feacf04e01b17",
+      "modified_utc": "2026-09-23T13:41:50.792602+00:00",
+      "change": "Verbatim byte copy"
+    },
+    {
+      "source": "Project/sql/04_triggers_views.sql",
+      "published": "archive/election-analytics/sql/04_triggers_views.sql",
+      "original_sha256": "e0ca98d54e2eb9b96375d5fca252fab04077bb692249f2e7e3ae7dc33e0ecf28",
+      "published_sha256": "e0ca98d54e2eb9b96375d5fca252fab04077bb692249f2e7e3ae7dc33e0ecf28",
+      "modified_utc": "2026-09-23T13:41:51.397569+00:00",
+      "change": "Verbatim byte copy"
+    },
+    {
+      "source": "Project/sql/05_analytical_queries.sql",
+      "published": "archive/election-analytics/sql/05_analytical_queries.sql",
+      "original_sha256": "b4f26e1f127cad6b2fe3697e28c72f5f8d2e3623f7e68d3fcaa84a60b0906ad3",
+      "published_sha256": "b4f26e1f127cad6b2fe3697e28c72f5f8d2e3623f7e68d3fcaa84a60b0906ad3",
+      "modified_utc": "2026-09-23T13:41:54.358930+00:00",
+      "change": "Verbatim byte copy"
+    }
+  ]
+}

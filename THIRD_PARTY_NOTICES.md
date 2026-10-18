@@ -4,7 +4,7 @@ The supplied election coursework credits Jorge Pereira, Rafael Martins and Sofia
 
 Selected historical laboratory files may include educational scaffolding. They are identified as coursework, not presented as novel algorithms. Instructor solution files and source population datasets are excluded. No blanket license is assigned to academic or collaboratively authored material without confirmation from its rights holders.
 
-The separately identified course models in `coursework/dbt_airbnb/` retain the supplied upstream CC BY-NC-SA 4.0 license and attribution to the Complete dbt Bootcamp material associated with Zoltan C. Toth / Nordquant. That license is scoped to those course files. The portfolio does not redistribute the complete course, its private configuration or original datasets.
+The separately identified course models in `archive/dbt-course-airbnb/` retain the supplied upstream CC BY-NC-SA 4.0 license and attribution to the Complete dbt Bootcamp material associated with Zoltan C. Toth / Nordquant. That license is scoped to those course files. The portfolio does not redistribute the complete course, its private configuration or original datasets.
 
 PostgreSQL, PostGIS, SQLite, Python, Flask, Psycopg, dbt and DuckDB remain their respective projects and are installed separately under their licenses. The map loads Leaflet 1.9.4 from its CDN and, when online, OpenStreetMap tiles with visible attribution. No third-party application binaries or virtual environments are vendored.
 

@@ -1,0 +1,25 @@
+name: Customer analytics checks
+on:
+  push:
+    paths: ['projects/customer-analytics/**', '.github/workflows/customer-analytics.yml']
+  pull_request:
+    paths: ['projects/customer-analytics/**', '.github/workflows/customer-analytics.yml']
+  workflow_dispatch:
+permissions:
+  contents: read
+defaults:
+  run:
+    working-directory: projects/customer-analytics
+jobs:
+  dbt:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: pip
+          cache-dependency-path: projects/customer-analytics/requirements.txt
+      - run: python -m pip install -r requirements.txt
+      - run: python tools/run_dbt.py
+      - run: python tools/check_dbt_results.py

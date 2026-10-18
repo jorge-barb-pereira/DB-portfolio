@@ -2,10 +2,12 @@
 
 A generic analytics-engineering study with staging views, effective-date customer history and dimensional marts. The public demonstration replaces all supplied input records with invented data. It contains no original connection profile, private account identifiers or identifying project context.
 
-From the repository root:
+Run from `projects/customer-analytics/`, using a dedicated virtual environment:
 
 ```bash
-python -m pip install -r requirements-dbt.txt
+python -m venv .venv
+# Activate this project environment, then:
+python -m pip install -r requirements.txt
 python tools/run_dbt.py
 python tools/check_dbt_results.py
 ```

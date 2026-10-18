@@ -5,7 +5,7 @@ from pathlib import Path
 import subprocess
 
 ROOT=Path(__file__).resolve().parents[1]
-manifest=json.loads((ROOT/'historical/manifest.json').read_text(encoding='utf-8'))
+manifest=json.loads((ROOT/'archive/manifest.json').read_text(encoding='utf-8'))
 for record in manifest['files']:
     path=ROOT/record['published']
     assert hashlib.sha256(path.read_bytes()).hexdigest()==record['published_sha256'],path
